@@ -1,24 +1,81 @@
-JPGData = new Meteor.Collection("financials");
+Companies = new Meteor.Collection("companies");
 
-JPGData.allow({
+//Permission
+Companies.allow({
+  //Only Upsert (Update or Insert) and only through below function updateCompany
   insert: function () {
-    return false; // no cowboy inserts -- use createParty method
+    return false; 
   },
-  update: function (userId, party, fields, modifier) {
-    if (userId !== party.owner)
-      return false; // not the owner
-
-    var allowed = ["title", "description", "x", "y"];
-    if (_.difference(fields, allowed).length)
-      return false; // tried to write to forbidden field
-
-    // A good improvement would be to validate the type of the new
-    // value of the field (and if a string, the length.) In the
-    // future Meteor will have a schema system to makes that easier.
+  remove: function (company) {
     return true;
-  },
-  remove: function (userId, party) {
-    // You can only remove parties that you created and nobody is going to.
-    return party.owner === userId && attending(party) === 0;
+  }
+});
+
+Meteor.methods({
+	updateCompany: function (options) {
+    Companies.insert({
+		CompanyTicker: options.CompanyTicker,
+		Name: options.Name,
+		Industry: options.Industry,
+		Industry_Google: options.Industry_Google,
+		EstFinancialMarginOfSafety: options.EstFinancialMarginOfSafety,
+		EstFinancialMarginOfSafety5: options.EstFinancialMarginOfSafety5,
+		EstFCFMarginOfSafety: options.EstFCFMarginOfSafety,
+		PERatio: options.PERatio,
+		ROIC: options.ROIC,
+		NormOpMargins: options.NormOpMargins,
+		NormNetMargins: options.NormNetMargins,
+		Price: options.Price,
+		MarketCap: options.MarketCap,
+		IncomeAfterTax: options.IncomeAfterTax,
+		TotalLongTermDebt: options.TotalLongTermDebt,
+		CashAndEquivalents: options.CashAndEquivalents,
+		TotalAssets: options.TotalAssets,
+		ROICPercentile: options.ROICPercentile,
+		CompanyROICThreshold: options.CompanyROICThreshold,
+		LikelyIncomeGrowth: options.LikelyIncomeGrowth,
+		AdjustedIncomeGrowth: options.AdjustedIncomeGrowth,
+		EstGrowth: options.EstGrowth,
+		SpecEstGrowth: options.SpecEstGrowth,
+		WtdCompetitorGrowthTTM: options.WtdCompetitorGrowthTTM,
+		BaselineGrowthRate: options.BaselineGrowthRate,
+		TotalCommonSharesOutstanding: options.TotalCommonSharesOutstanding,
+		IndustryExpEarnings: options.IndustryExpEarnings,
+		TwoYrAvgFCF: options.TwoYrAvgFCF,
+		MarketExpYears: options.MarketExpYears,
+		PVEarnings: options.PVEarnings,
+		DiscountFactor: options.DiscountFactor,
+		Discount: options.Discount,
+		NextYearsEarnings: options.NextYearsEarnings,
+		BaselineNextYearsEarnings: options.BaselineNextYearsEarnings,
+		BaselineNextYearsEarnings5: options.BaselineNextYearsEarnings5,
+		BaselineFCFPV: options.BaselineFCFPV,
+		BookValuePerShare: options.BookValuePerShare,
+		BaselinePV: options.BaselinePV,
+		BaselinePVPerShare: options.BaselinePVPerShare,
+		BaselinePV5: options.BaselinePV5,
+		BaselinePV5PerShare: options.BaselinePV5PerShare,
+		avgDailyVolume: options.avgDailyVolume,
+		MedianOrAvgCompetitorPE: options.MedianOrAvgCompetitorPE,
+		CompetitorsROIC: options.CompetitorsROIC,
+		CompetitorsOpMargins: options.CompetitorsOpMargins,
+		CompetitorsNetMargins: options.CompetitorsNetMargins,
+		UnusualOpIncome: options.UnusualOpIncome,
+		UnusualNetIncome: options.UnusualNetIncome,
+		MaxPaybackPeriod: options.MaxPaybackPeriod,
+		StockPick: options.StockPick,
+		MinRevenueGrowth1: options.MinRevenueGrowth1,
+		AvgRevenueGrowth1: options.AvgRevenueGrowth1,
+		MinEPSGrowth1: options.MinEPSGrowth1,
+		AvgEPSGrowth1: options.AvgEPSGrowth1,
+		MinRevenueGrowth2: options.MinRevenueGrowth2,
+		AvgRevenueGrowth2: options.AvgRevenueGrowth2,
+		MinEPSGrowth2: options.MinEPSGrowth2,
+		AvgEPSGrowth2: options.AvgEPSGrowth2,
+		MinRevenueGrowth3: options.MinRevenueGrowth3,
+		AvgRevenueGrowth3: options.AvgRevenueGrowth3,
+		MinEPSGrowth3: options.MinEPSGrowth3,
+		AvgEPSGrowth3: options.AvgEPSGrowth3
+    });
   }
 });
