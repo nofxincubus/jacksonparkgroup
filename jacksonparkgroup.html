@@ -1,0 +1,51 @@
+<head>
+  <title>JacksonPark Group</title>
+ </head>
+ 
+<body>
+ 
+    <div class="navbar navbar-static-top">
+ 
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">JacksonPark Group</a>
+          <ul class="nav pull-right">
+            <li>
+              {{loginButtons align="right"}}
+            </li>
+          </ul>
+        </div>
+      </div>
+</div>
+ 
+    <div class="container" id="main">
+    {{#if currentUser}}
+      {{> uploadfile}}
+    {{/if}}
+    {{#unless currentUser}}
+      {{> banner}}
+    {{/unless}}
+    </div>
+</body>
+ 
+<template name="banner">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                    <h4>Sign in</h4>
+            </div>
+        </div>
+    </div>
+</template>
+<template name="uploadfile">
+  <div class="fileupload fileupload-new" data-provides="fileupload">
+   <span class="btn btn-file">
+      <span class="fileupload-new">{{file-upload.label.de}}</span>
+      <span class="fileupload-exists">Andere</span>
+      <input name="{{file-upload.name}}" class="file-upload-input" method="{{file-upload.method}}" type="file"/>
+   </span>
+   <span class="fileupload-preview">
+   </span>
+   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+</div>
+</template>
