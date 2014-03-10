@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "flot": {}
+    },
+    "packages": {
+      "flot": {
+        "git": "https://github.com/austinrivas/meteor-flot.git",
+        "tag": "v1.0.6",
+        "commit": "b1561652ac7a73a99397a9922d39a5e19a75d26e"
+      }
+    }
+  }
+}

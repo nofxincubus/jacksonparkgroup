@@ -21,6 +21,7 @@
     <div class="container" id="main">
     {{#if currentUser}}
       {{> uploadfile}}
+      {{> lookupcompany}}
     {{/if}}
     {{#unless currentUser}}
       {{> banner}}
@@ -28,6 +29,7 @@
     </div>
 </body>
  
+<!--Not signed in part-->
 <template name="banner">
     <div class="container">
         <div class="row">
@@ -37,15 +39,41 @@
         </div>
     </div>
 </template>
+
+<!-- File upload part-->
 <template name="uploadfile">
   <div class="fileupload fileupload-new" data-provides="fileupload">
    <span class="btn btn-file">
       <span class="fileupload-new">{{file-upload.label.de}}</span>
-      <span class="fileupload-exists">Andere</span>
+      <span class="fileupload-exists">File exists</span>
       <input name="{{file-upload.name}}" class="file-upload-input" method="{{file-upload.method}}" type="file"/>
    </span>
    <span class="fileupload-preview">
    </span>
    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
 </div>
+</template>
+
+<!-- Look Up Company part-->
+<template name="lookupcompany">
+  <div class="company-lookup">
+      <input type="text" class="ticker" name="company-ticker" placeholder="Ticker eg:INTC"/>
+      <input type="button" class="search" value="Search"/><br/>
+  </div>
+
+    <div class="demo-container">
+      <div id="placeholder" class="flot"></div>
+    </div>
+
+    <p>Company Valuation</p>
+
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2014 JacksonPark
+  </div>
+
+
+
+  <!-- INSERT CHART HERE-->
 </template>
