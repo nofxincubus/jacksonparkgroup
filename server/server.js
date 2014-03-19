@@ -99,8 +99,3 @@ Meteor.methods({
 
 
 
-
-
-
-
-

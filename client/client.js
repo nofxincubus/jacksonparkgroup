@@ -1,15 +1,72 @@
+Meteor.Router.add({
+  '/': 'lookupcompany',
+  '/upload':'uploadfile',
+  '/contactus':'contactus',
+  '/aboutus':'aboutus',
+  '*': '404',
+  '/admin': { to: 'adminusers', nav: 'adminusers', before: [bounceNonUserAdmin] }
+});
+
 //Uploading CSV to update the DB
 Template.uploadfile.events({
 "change .file-upload-input": function(event, template){
-   var func = this;
-   var file = event.currentTarget.files[0];
-   var reader = new FileReader();
-   reader.onload = function(fileLoadEvent) {
-      Meteor.call('file-upload', file, reader.result);
-   };
-   reader.readAsBinaryString(file);
+  var func = this;
+  var file = event.currentTarget.files[0];
+  var reader = new FileReader();
+  reader.onload = function(fileLoadEvent) {
+    Meteor.call('file-upload', file, reader.result);
+  };
+  reader.readAsBinaryString(file);
 }
 });
+
+Template.uploadfile.admin = function () {
+  if (Meteor.user().roles == undefined){
+    return false;
+  }
+  if (Meteor.user().roles[0].indexOf("admin") != -1 &&
+      Meteor.user().roles[1].indexOf("user-admin") != -1)
+    return true;
+  else
+    return false;
+};
+
+
+Template.menu.admin = function () {
+  if (Meteor.user().roles == undefined){
+    return false;
+  }
+  if (Meteor.user().roles[0].indexOf("admin") != -1 &&
+      Meteor.user().roles[1].indexOf("user-admin") != -1)
+    return true;
+  else
+    return false;
+};
+
+Template.lookupcompany.rendered = function (){
+  $(document).ready(function(){
+   // cache the window object
+   $window = $(window);
+ 
+   $('section[data-type="background"]').each(function(){
+     // declare the variable to affect the defined data-type
+     var $scroll = $(this);
+                     
+      $(window).scroll(function() {
+        // HTML5 proves useful for helping with creating JS functions!
+        // also, negative value because we're scrolling upwards                             
+        var yPos = -($window.scrollTop() / $scroll.data('speed')); 
+         
+        // background position
+        var coords = '50% '+ yPos + 'px';
+ 
+        // move the background
+        $scroll.css({ backgroundPosition: coords });    
+      }); // end window scroll
+   });  // end section function
+}); // close out script
+
+};
 
 Template.lookupcompany.events({
   'click .search' : function () {
@@ -30,6 +87,7 @@ function submitme() {
   } else {
     chosenCompany = nyse;
   }
+  $( "#company-name" ).text(chosenCompany.Name);
 
   var CurrentPrice = parseFloat(chosenCompany.Price);
   var valuation1 = (parseFloat(chosenCompany.EstFCFMarginOfSafety) + 1) * CurrentPrice;

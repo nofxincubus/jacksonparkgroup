@@ -1,5 +1,8 @@
 {
   "packages": {
-    "flot": {}
+    "flot": {},
+    "router": {},
+    "bootstrap-3": {},
+    "accounts-admin-ui": {}
   }
 }

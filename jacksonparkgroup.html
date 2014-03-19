@@ -3,45 +3,47 @@
  </head>
  
 <body>
- 
-    <div class="navbar navbar-static-top">
- 
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">JacksonPark Group</a>
-          <ul class="nav pull-right">
-            <li>
-              {{loginButtons align="right"}}
-            </li>
-          </ul>
-        </div>
-      </div>
-</div>
- 
-    <div class="container" id="main">
-    {{#if currentUser}}
-      {{> uploadfile}}
-      {{> lookupcompany}}
-    {{/if}}
-    {{#unless currentUser}}
-      {{> banner}}
-    {{/unless}}
-    </div>
+  {{> menu}}
+  {{renderPage}}
 </body>
- 
-<!--Not signed in part-->
-<template name="banner">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                    <h4>Sign in</h4>
-            </div>
-        </div>
-    </div>
-</template>
 
+<template name="menu">
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">JacksonPark Group</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="mobile-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Valuation</a></li>
+          <li><a href="/aboutus">About Us</a></li>
+          <li><a href="/contactus">Contact us</a></li>
+          {{#if currentUser}}
+            {{#if admin}}
+              <li><a href="/upload">Upload</a></li>
+            {{/if}}
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>{{loginButtons align="right"}}</li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </div>
+</template>
+ 
 <!-- File upload part-->
 <template name="uploadfile">
+  {{#if admin}}
   <div class="fileupload fileupload-new" data-provides="fileupload">
    <span class="btn btn-file">
       <span class="fileupload-new">{{file-upload.label.de}}</span>
@@ -51,29 +53,63 @@
    <span class="fileupload-preview">
    </span>
    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-</div>
+  </div>
+  {{/if}}
 </template>
 
 <!-- Look Up Company part-->
 <template name="lookupcompany">
-  <div class="company-lookup">
-      <input type="text" class="ticker" name="company-ticker" placeholder="Ticker eg:INTC"/>
-      <input type="button" class="search" value="Search"/><br/>
-  </div>
-
-    <div class="demo-container">
-      <div id="placeholder" class="flot"></div>
+  {{#if currentUser}}
+    <div class="container">
+      <div class="form-inline">
+        <input type="search" class="form-control ticker" name="company-ticker" placeholder="Ticker eg:INTC"/>
+        <input type="button" class="btn btn-default search" value="Search"/><br/>
+      </div>
+      <div class="demo-container">
+        <h3 id="company-name"></h3>
+        <div id="placeholder" class="flot"></div>
+      </div>
+      <div id="footer">
+        Copyright &copy; 2014 JacksonPark
+      </div>
     </div>
+  {{else}}
+  <section id="intro" data-speed="6" data-type="background">
+        <div class="container">
+          
+        </div>
+    </section>
+    <section id="second-intro"></section>
+    <!-- Section 2 -->
+    <section id="home" data-speed="4" data-type="background">
+        <div class="container">
+          
+        </div>
+    </section>
+    <!-- Section 3 -->
+    <section id="about" data-speed="2" data-type="background">
+        <div class="container">
+          <div id="footer">
+            Copyright &copy; 2014 JacksonPark
+          </div>
+        </div>
+    </section>
 
-    <p>Company Valuation</p>
+  {{/if}}
+</template>
 
-  </div>
+<template name="404">
+  <h1>Oops, page not found</h1>
+  <p>The page you were looking for has gone missing!</p>
+</template>
 
-  <div id="footer">
-    Copyright &copy; 2014 JacksonPark
-  </div>
+<template name="aboutus">
+  <h1>About Us</h1>
+  <h2>Dr. Justin P. Jackson</h2>
+  <p>Balla Doctorate</p>
+  <h2>Calvin Park</h2>
+  <p>Mobile Hacker</p>
+</template>
 
-
-
-  <!-- INSERT CHART HERE-->
+<template name="contactus">
 </template>
