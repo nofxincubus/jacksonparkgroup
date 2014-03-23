@@ -5,6 +5,7 @@
       "flot": {},
       "router": {},
       "bootstrap-3": {},
+      "jquery-ui-bootstrap": {},
       "accounts-admin-ui": {}
     },
     "packages": {
@@ -22,6 +23,11 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.1.1-1",
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "jquery-ui-bootstrap": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui-bootstrap.git",
+        "tag": "v0.1.2",
+        "commit": "fa742a85639307003e105898e15b631394b63509"
       },
       "accounts-admin-ui": {
         "git": "https://github.com/kenyee/meteor-accounts-admin-ui.git",

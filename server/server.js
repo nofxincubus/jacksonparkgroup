@@ -1,3 +1,11 @@
+Meteor.publish("CompanyTickerList", function () {
+    return Companies.find();
+});
+
+Meteor.publish("users", function () {
+  return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
+});
+
 Meteor.methods({
    'file-upload': function (fileInfo, fileData) {
    		Companies.remove({})

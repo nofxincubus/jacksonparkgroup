@@ -1,10 +1,36 @@
+Meteor.subscribe("CompanyTickerList",function(){
+  if (Meteor.userId != undefined){
+    var tickerList = Companies.find({}, {fields: {'CompanyTicker':1, 'Name':1}}).fetch();
+    var tickerNameArray = [];
+    if (tickerList.length > 10){
+      for (var i = 0; i < tickerList.length;i++){
+        tickerNameArray[i] = tickerList[i].CompanyTicker.substring(0,tickerList[i].CompanyTicker.indexOf("_")) + " " + tickerList[i].Name;
+      }
+      $("#ticker").autocomplete({
+        source: tickerNameArray,
+        messages: {
+          noResults: '',
+          results: function() {}
+        },select:function(event, ui){
+          var ticker = ui.item.value.substring(0,ui.item.value.indexOf(" "));
+          submitme(ticker.toUpperCase());
+        }
+      });
+      //submitme("INTC");
+    } 
+  }
+});
+
+Meteor.subscribe("users")
+
 Meteor.Router.add({
-  '/': 'lookupcompany',
+  '/': 'home',
+  '/valuation': 'lookupcompany',
   '/upload':'uploadfile',
   '/contactus':'contactus',
   '/aboutus':'aboutus',
   '*': '404',
-  '/admin': { to: 'adminusers', nav: 'adminusers', before: [bounceNonUserAdmin] }
+  '/admin': { to: 'uploadfile', nav: 'uploadfile', before: [bounceNonUserAdmin] }
 });
 
 //Uploading CSV to update the DB
@@ -21,7 +47,7 @@ Template.uploadfile.events({
 });
 
 Template.uploadfile.admin = function () {
-  if (Meteor.user().roles == undefined){
+  if (Meteor.user() == undefined || Meteor.user().roles == undefined){
     return false;
   }
   if (Meteor.user().roles[0].indexOf("admin") != -1 &&
@@ -33,7 +59,7 @@ Template.uploadfile.admin = function () {
 
 
 Template.menu.admin = function () {
-  if (Meteor.user().roles == undefined){
+  if (Meteor.user() == undefined || Meteor.user().roles == undefined){
     return false;
   }
   if (Meteor.user().roles[0].indexOf("admin") != -1 &&
@@ -45,6 +71,7 @@ Template.menu.admin = function () {
 
 Template.lookupcompany.rendered = function (){
   $(document).ready(function(){
+    
    // cache the window object
    $window = $(window);
  
@@ -64,18 +91,41 @@ Template.lookupcompany.rendered = function (){
         $scroll.css({ backgroundPosition: coords });    
       }); // end window scroll
    });  // end section function
+
+   
 }); // close out script
+
+  var tickerList = Companies.find({}, {fields: {'CompanyTicker':1, 'Name':1}}).fetch();
+    var tickerNameArray = [];
+    if (tickerList.length > 10){
+      for (var i = 0; i < tickerList.length;i++){
+        tickerNameArray[i] = tickerList[i].CompanyTicker.substring(0,tickerList[i].CompanyTicker.indexOf("_")) + " " + tickerList[i].Name;
+      }
+      $("#ticker").autocomplete({
+        source: tickerNameArray,
+        messages: {
+          noResults: '',
+          results: function() {}
+        },select:function(event, ui){
+          var ticker = ui.item.value.substring(0,ui.item.value.indexOf(" "));
+          submitme(ticker.toUpperCase());
+        }
+      });
+      submitme("INTC");
+    }
 
 };
 
+
 Template.lookupcompany.events({
-  'click .search' : function () {
-    submitme();
+  'click #search' : function () {
+    var ticker = $('#ticker').val();
+    submitme(ticker.toUpperCase());
 }});
 
-function submitme() {
-  var tickerNasdaq = $('.ticker').val() + "_nasdaq";
-  var tickerNyse = $('.ticker').val() + "_nyse";
+function submitme(tickerStr) {
+  var tickerNasdaq = tickerStr + "_nasdaq";
+  var tickerNyse = tickerStr + "_nyse";
 
   var nasdaq = Companies.findOne({CompanyTicker: tickerNasdaq});
   var nyse = Companies.findOne({CompanyTicker: tickerNyse});

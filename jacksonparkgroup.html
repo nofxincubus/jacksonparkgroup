@@ -2,15 +2,16 @@
   <title>JacksonPark Group</title>
  </head>
  
+
 <body>
-  {{> menu}}
+  {{>menu}}
   {{renderPage}}
+  {{>footer}}
 </body>
 
 <template name="menu">
-  <div class="navbar navbar-default navbar-static-top" role="navigation">
+  <header class="navbar navbar-default navbar-static-top" id="top" role="banner">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -18,28 +19,36 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">JacksonPark Group</a>
+        <a class="navbar-brand" href="/">JacksonPark Group</a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="mobile-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/">Valuation</a></li>
-          <li><a href="/aboutus">About Us</a></li>
-          <li><a href="/contactus">Contact us</a></li>
+          <li><a class="medium-font-size" href="/valuation">Valuation</a></li>
+          <li><a class="medium-font-size" href="/aboutus">About Us</a></li>
+          <li><a class="medium-font-size" href="mailto:jacksonparkgroup@gmail.com">Contact us</a></li>
           {{#if currentUser}}
             {{#if admin}}
-              <li><a href="/upload">Upload</a></li>
+              <li><a class="medium-font-size" href="/upload">Upload</a></li>
             {{/if}}
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>{{loginButtons align="right"}}</li>
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </div>
-  </div>
+  </header>
 </template>
+<template name="footer">
+  <section id="about">
+    <div class="container">
+      <div id="footer">
+        Copyright &copy; 2014 JacksonPark
+      </div>
+    </div>
+  </section>
+</template>
+
  
 <!-- File upload part-->
 <template name="uploadfile">
@@ -60,42 +69,55 @@
 <!-- Look Up Company part-->
 <template name="lookupcompany">
   {{#if currentUser}}
-    <div class="container">
-      <div class="form-inline">
-        <input type="search" class="form-control ticker" name="company-ticker" placeholder="Ticker eg:INTC"/>
-        <input type="button" class="btn btn-default search" value="Search"/><br/>
+    <section id="intro">
+      <div class="container">
+        <div class ="row">
+          <div class="col-md-6 pull-right">
+            <input id="ticker" type="search" class="col-md-8"placeholder="Ticker eg:INTC"/>
+            <input id="search" type="button" class="btn btn-default pull-right" value="Search"/><br/>
+          </div>
+        </div>
       </div>
-      <div class="demo-container">
-        <h3 id="company-name"></h3>
-        <div id="placeholder" class="flot"></div>
+      <div class ="row">
+        <div class="demo-container">
+          <h3 id="company-name"></h3>
+          <div id="placeholder" class="flot"></div>
+        </div>
       </div>
-      <div id="footer">
-        Copyright &copy; 2014 JacksonPark
-      </div>
-    </div>
-  {{else}}
-  <section id="intro" data-speed="6" data-type="background">
+    </section>
+  {{/if}}
+</template>
+
+<template name="home">
+  <section id="intro">
         <div class="container">
-          
+            <img class="center-block" src="/sample_logo.png">
+            <h1 class="text-center">JacksonPark Group</h1>
+            <h3 class="text-center">Invest</h3>
+            <h3 class="text-center">Patience</h3>
+            <h3 class="text-center">Wealth</h3>
         </div>
     </section>
     <section id="second-intro"></section>
     <!-- Section 2 -->
     <section id="home" data-speed="4" data-type="background">
         <div class="container">
-          
-        </div>
-    </section>
-    <!-- Section 3 -->
-    <section id="about" data-speed="2" data-type="background">
-        <div class="container">
-          <div id="footer">
-            Copyright &copy; 2014 JacksonPark
+          <div class="row">
+            <div class="col-sm-4">
+              <h1 class="white-font">Philosophy</h1>
+              <h4 class="white-font">Three year rule – Do not sell a stock with a poorly performing price before three years if all else is acceptable. Focus on fundamental value that is easy to articulate.</h4>
+            </div>
+            <div class="col-sm-4">
+              <h1 class="white-font">Incentive</h1>
+              <h4 class="white-font">Our prosperity is proportional to yours.<br/>We’re invested in the same stocks you are.<br/>We buy when we recommend to buy and we sell when we recommend to sell.</h4>
+            </div>
+            <div class="col-sm-4">
+              <h1 class="white-font">Goal</h1>
+              <h4 class="white-font">Sell at a 20-30% gain 80-90% of the time with an average holding period of 2-4 years, march steadily. Provide simplicity in investing with maximum transparency of the investment techniques and concepts.</h4>
+            </div>
           </div>
         </div>
     </section>
-
-  {{/if}}
 </template>
 
 <template name="404">
@@ -104,11 +126,13 @@
 </template>
 
 <template name="aboutus">
-  <h1>About Us</h1>
-  <h2>Dr. Justin P. Jackson</h2>
-  <p>Balla Doctorate</p>
-  <h2>Calvin Park</h2>
-  <p>Mobile Hacker</p>
+  <div class="container">
+    <h1>About Us</h1>
+    <h2>Dr. Justin P. Jackson</h2>
+    <p>Balla Doctorate</p>
+    <h2>Calvin Park</h2>
+    <p>Mobile Hacker</p>
+  <div class="container">
 </template>
 
 <template name="contactus">

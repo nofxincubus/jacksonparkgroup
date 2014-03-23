@@ -3,6 +3,7 @@
     "flot": {},
     "router": {},
     "bootstrap-3": {},
+    "jquery-ui-bootstrap": {},
     "accounts-admin-ui": {}
   }
 }
