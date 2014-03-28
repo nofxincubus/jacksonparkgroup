@@ -204,6 +204,7 @@ function submitme(tickerStr) {
         },
         yaxis: { 
           show: false,
+          max: valuation3 + 30,
           ticklength: 0 
         },
         label: {

@@ -43,7 +43,9 @@
   <section id="about">
     <div class="container">
       <div id="footer">
-        Copyright &copy; 2014 JacksonPark
+        <p>This information presented on this site is intended to assist investors. The information and analysis does not constitute investment advice. This information is not an offer to invest or to provide management services. All information, analysis, and opinions presented on this site are subject to correction, completion and amendment without notice. Current or past results are not indicative of future results and any analysis therein should not be taken as expectations of future performance. Investors should consult with investment, accounting, legal and tax advisers to evaluate independently the risks, consequences of any investment prior to purchase. Opinions and decisions expressed on this site are subject to change without notice. Should any assumptions used here in any way change investment results are likely to vary substantially. You may not rely on any statements contained herein to produce results of any predefined expectation. All investments entail risks and there is no guarantee that any investment strategy will achieve any desired result. No information on this site should be taken as such. JacksonPark makes no claim to and does not provide broker/dealer, consulting or any related services. JacksonPark and the owners and operators of this site shall not have any liability for any damages of any kind whatsoever relating to material presented, distributed via, or relating to this site. By reading material on this site you acknowledge and agree to the terms of this disclaimer.</p>
+        <br/>
+        <p>Copyright &copy; 2014 JacksonPark</p>
       </div>
     </div>
   </section>
@@ -85,39 +87,97 @@
         </div>
       </div>
     </section>
+    <section id="intro">
+      <div class="accordion" id="section1">
+        Financial Competitiveness
+        <span></span></div>
+        <div class="container">
+            <div class="content">
+                <p>
+              Return on investment compared to competitors
+            </p>
+            <p>
+              Company return percentile ranking (ROIPercentile number)
+            </p>
+            <p>
+                    ROIC percentage comparison - chart here
+            </p>
+            </div>
+        </div>
+        <!-- end panel -->
+        <!-- panel -->
+        <div class="accordion" id="section2">
+        Growth
+        <span></span></div>
+
+        <div class="container">
+            <div class="content">
+            <p>
+              Historical growth - context for company's future growth prospects.
+            </p>
+            <p>
+              Cash flow growth (not in the table yet)
+            </p>
+            <p>
+              Three-year EPS growth (AvgEPSGrowth3)
+            </p>
+            <p>
+              Three-year revenue growth (AvgRevenueGrowth3)
+                </p>
+            </div>
+        </div>
+        <!-- end panel -->
+        <!-- panel -->
+        <div class="accordion" id="section3">
+        Financial Health
+        <span></span></div>
+        <div class="container">
+            <div class="content">
+                <p>
+              Liquidity and Solvency
+            </p>
+            <p>
+                    Liquidity and the current ratio
+            </p>
+            <p>
+              Long-term debt levels
+                </p>
+            </div>
+        </div>
+    </section>
+
   {{/if}}
 </template>
 
 <template name="home">
   <section id="intro">
-        <div class="container">
-            <img class="center-block" src="/sample_logo.png">
-            <h1 class="text-center">JacksonPark Group</h1>
-            <h3 class="text-center">Invest</h3>
-            <h3 class="text-center">Patience</h3>
-            <h3 class="text-center">Wealth</h3>
+    <div class="container">
+    <h1 class="text-center">Welcome to JacksonPark.</h1>
+    <h1 class="text-center">Most of us are or should be <a target="_blank" href="http://www.fxf1.com/english-books/The%20Intelligent%20Investor%20-%20BENJAMIN%20GRAHAM.pdf#page=32">investors</a>, not traders.</h1>
+        <img class="center-block" src="sample_logo.png">
+     </div>
+  </section>
+
+  <section id="second-intro"></section>
+  <!-- Section 2 -->
+  <section id="home" data-speed="4" data-type="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1 class="white-font">Purpose</h1>
+          <h4 class="white-font">Provide simplicity in individual investing with transparency of the investment techniques and concepts.</h4>
         </div>
-    </section>
-    <section id="second-intro"></section>
-    <!-- Section 2 -->
-    <section id="home" data-speed="4" data-type="background">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <h1 class="white-font">Philosophy</h1>
-              <h4 class="white-font">Three year rule – Do not sell a stock with a poorly performing price before three years if all else is acceptable. Focus on fundamental value that is easy to articulate.</h4>
-            </div>
-            <div class="col-sm-4">
-              <h1 class="white-font">Incentive</h1>
-              <h4 class="white-font">Our prosperity is proportional to yours.<br/>We’re invested in the same stocks you are.<br/>We buy when we recommend to buy and we sell when we recommend to sell.</h4>
-            </div>
-            <div class="col-sm-4">
-              <h1 class="white-font">Goal</h1>
-              <h4 class="white-font">Sell at a 20-30% gain 80-90% of the time with an average holding period of 2-4 years, march steadily. Provide simplicity in investing with maximum transparency of the investment techniques and concepts.</h4>
-            </div>
-          </div>
+        <div class="col-sm-4">
+          <h1 class="white-font">Portfolio</h1>
+          <h4 class="white-font">Build portfolios we're proud of and portfolios that help us sleep well at night. Our portfolios are designed to produce cash.</h4>
         </div>
-    </section>
+        <div class="col-sm-4">
+          <h1 class="white-font">Value</h1>
+          <h4 class="white-font">Focus on fundamental value that is easy to articulate. We time on the numbers, but most of our time is spent being sure they make sense.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <template name="404">
@@ -126,13 +186,26 @@
 </template>
 
 <template name="aboutus">
-  <div class="container">
-    <h1>About Us</h1>
-    <h2>Dr. Justin P. Jackson</h2>
-    <p>Balla Doctorate</p>
-    <h2>Calvin Park</h2>
-    <p>Mobile Hacker</p>
-  <div class="container">
+  <section id="second-intro"></section>
+  <!-- Section 2 -->
+  <section id="home" data-speed="4" data-type="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1 class="white-font">Patience</h1>
+          <h4 class="white-font">We believe in Philip Fisher's Three Year Rule; do not sell a stock with a poorly performing price before three years if all else is acceptable. This is our idea of patience and we believe it is the most important aspect of our investing strategy.</h4>
+        </div>
+        <div class="col-sm-4">
+          <h1 class="white-font">Incentive</h1>
+          <h4 class="white-font">We’re invested in the stocks we provide risk and mitigation analysis for.</h4>
+        </div>
+        <div class="col-sm-4">
+          <h1 class="white-font">Goal</h1>
+          <h4 class="white-font">Our goal is to sell at a 20-30% gain 80-90% of the time with an average holding period of 2-4 years.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <template name="contactus">

@@ -177,6 +177,46 @@ height: 180px;
 }
 
 
+/*
+Accordion
+*/
+.accordion {
+    margin: 0;
+    padding:10px;
+    height:50px;
+    border-top: #f0f0f0 1px solid;
+    background: #cccccc;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration:none;
+    text-transform:uppercase;
+    color: #000;
+    font-size:1.5em;
+	font-weight:bold;
+}
+.accordion-open {
+    background:#0000FF/*#000*/;
+    color: #000/*#fff*/;
+}
+.accordion-close {
+    background:#0000FF;
+    color: #000;
+}
+.accordion-open span {
+    display:block;
+    float:right;
+    padding:10px;
+}
+.accordion-open span {
+    background:url(../images/minus.png) center center no-repeat;
+}
+.accordion-close span {
+    display:block;
+    float:right;
+    background: #00FF00/*url(../images/plus.png) center center no-repeat*/;
+    padding:10px;
+}
+
+
 
 
 
