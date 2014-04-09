@@ -87,12 +87,12 @@
 	border-spacing: 5px;
 }
 
-#intro { 
-    background: #fff 50% 0 fixed; 
-    height: auto;  
-    margin: 0 auto; 
-    width: 100%;  
-    position: relative; 
+#intro {
+    background: #fff 50% 0 fixed;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
     padding-top: 50px;
     padding-bottom: 30px;
     z-index:0;
@@ -100,35 +100,45 @@
 
 #second-intro{
 	height:1px;
-	width: 100%;  
+	width: 100%;
 	z-index: -1;
 }
-#home { 
-    background: url(/deep_blue.png) 50% 0 fixed; 
-    height: auto;  
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
+#home {
+    background: url(/deep_blue.png) 50% 0 fixed;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
     padding: 80px 0;
     z-index: -2;
 }
-#about { 
-	background: #fff 50% 0 fixed; 
+#faq {
+    background: #f0f0f0;
     height: auto;
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 100px 0;
+    z-index: 0;
+}
+
+#about {
+	background: #fff 50% 0 fixed;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
     padding: 30px 0;
     color: #000;
     z-index: 0;
 }
 
-#about-valuation { 
-    background: #fff 50% 0 fixed; 
+#about-valuation {
+    background: #fff 50% 0 fixed;
     height: auto;
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
     padding: 30px 0;
     color: #000;
 }
@@ -215,13 +225,3 @@ Accordion
     background: #00FF00/*url(../images/plus.png) center center no-repeat*/;
     padding:10px;
 }
-
-
-
-
-
-
-
-
-
-
