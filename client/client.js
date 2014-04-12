@@ -17,7 +17,7 @@ Meteor.subscribe("CompanyTickerList",function(){
         }
       });
       //submitme("INTC");
-    } 
+    }
   }
 });
 
@@ -71,28 +71,28 @@ Template.menu.admin = function () {
 
 Template.lookupcompany.rendered = function (){
   $(document).ready(function(){
-    
+
    // cache the window object
    $window = $(window);
- 
+
    $('section[data-type="background"]').each(function(){
      // declare the variable to affect the defined data-type
      var $scroll = $(this);
-                     
+
       $(window).scroll(function() {
         // HTML5 proves useful for helping with creating JS functions!
-        // also, negative value because we're scrolling upwards                             
-        var yPos = -($window.scrollTop() / $scroll.data('speed')); 
-         
+        // also, negative value because we're scrolling upwards
+        var yPos = -($window.scrollTop() / $scroll.data('speed'));
+
         // background position
         var coords = '50% '+ yPos + 'px';
- 
+
         // move the background
-        $scroll.css({ backgroundPosition: coords });    
+        $scroll.css({ backgroundPosition: coords });
       }); // end window scroll
    });  // end section function
 
-   
+
 }); // close out script
 
   var tickerList = Companies.find({}, {fields: {'CompanyTicker':1, 'Name':1}}).fetch();
@@ -129,7 +129,7 @@ function submitme(tickerStr) {
 
   var nasdaq = Companies.findOne({CompanyTicker: tickerNasdaq});
   var nyse = Companies.findOne({CompanyTicker: tickerNyse});
-  
+
   //TEST
   var chosenCompany;
   if (nasdaq != null){
@@ -143,14 +143,14 @@ function submitme(tickerStr) {
   var valuation1 = (parseFloat(chosenCompany.EstFCFMarginOfSafety) + 1) * CurrentPrice;
   var valuation2 = (parseFloat(chosenCompany.EstFinancialMarginOfSafety) + 1) * CurrentPrice;
   var valuation3 = (parseFloat(chosenCompany.EstFinancialMarginOfSafety5) + 1) * CurrentPrice;
-  
+
   var BarWidth = 1;
   var BarSpace = BarWidth/10;
-  
-  
+
+
   var PriceStart = BarSpace;
   var PriceBar = [[ PriceStart, CurrentPrice ]];
-  
+
   var Val1Start = PriceStart + BarWidth + BarSpace;
   var Val1Bar = [[Val1Start, valuation1]];
 
@@ -165,11 +165,11 @@ function submitme(tickerStr) {
     lines = false,
     steps = false;
 
-  var PlotData = [ 
-          { data: PriceBar, color: 'purple', label: 'Recent Price'}, 
-          { data: Val1Bar, color: 'green', label: '0% Growth Valuation' }, 
+  var PlotData = [
+          { data: PriceBar, color: 'purple', label: 'Recent Price'},
+          { data: Val1Bar, color: 'green', label: '0% Growth Valuation' },
           { data: bar2, color: 'yellow', label: '5% Growth Valuation' },
-          { data: bar3, color: 'red', label: '10% Growth Valuation' } 
+          { data: bar3, color: 'red', label: '10% Growth Valuation' }
       ];
     var PlotOptions = {
         series: {
@@ -182,7 +182,7 @@ function submitme(tickerStr) {
             lineColor: "black",
             numbers: {
               numberFormatter: function(v, bar) {
-                return '<div class="pimp-my-number-class">'+ v +'</div>';               
+                return '<div class="pimp-my-number-class">'+ v +'</div>';
               }
             }
           },
@@ -197,15 +197,15 @@ function submitme(tickerStr) {
           position: "ne",
           show: true
         },
-        xaxis: { 
+        xaxis: {
           show: false,
           ticklength: 0,
           max: 5*BarWidth + 4*BarSpace
         },
-        yaxis: { 
+        yaxis: {
           show: false,
           max: valuation3 + 30,
-          ticklength: 0 
+          ticklength: 0
         },
         label: {
           show: true
@@ -213,4 +213,69 @@ function submitme(tickerStr) {
       }
     var placeholder = $("#placeholder");
     $.plot(placeholder, PlotData, PlotOptions);
+
+    /////////////////////////////ROIC
+
+    var CompanyROIC = parseFloat(chosenCompany.ROIC);
+    var CompetitorROIC = parseFloat(chosenCompany.CompetitorsROIC);
+
+    var BarWidth = CompanyROIC/30;
+    var BarSpace = BarWidth/10;
+
+
+    var PriceStart = BarSpace;
+    var PriceBar = [[ PriceStart, CompanyROIC ]];
+
+    var Val1Start = PriceStart + BarWidth + BarSpace;
+    var Val1Bar = [[Val1Start, CompetitorROIC]];
+
+    var stack = 0,
+      bars = true,
+      lines = false,
+      steps = false;
+
+    var PlotData = [
+          { data: PriceBar, color: 'blue', label: 'ROIC'},
+          { data: Val1Bar, color: 'red', label: 'Competitors ROIC' },
+      ];
+    var PlotOptions = {
+        series: {
+          stack: stack,
+          bars: {
+            show: bars,
+            fill: 0.5,
+            barWidth: BarWidth,
+            align: "center",
+            lineColor: "black",
+            numbers: {
+              numberFormatter: function(v, bar) {
+                return '<div class="pimp-my-number-class">'+ v +'</div>';
+              }
+            }
+          }
+        },
+        legend: {
+          position: "ne",
+          show: true
+        },
+        xaxis: {
+          show: false,
+          ticklength: 0,
+          max: 2*BarWidth + 1*BarSpace
+        },
+        yaxis: {
+          show: false,
+          max: CompanyROIC + CompetitorROIC,
+          ticklength: 0
+        }
+      }
+
+    var placeholder = $("#roic");
+
+    $.plot(placeholder, PlotData, PlotOptions);
+
+
+
+
+
 }

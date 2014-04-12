@@ -1,7 +1,7 @@
 <head>
   <title>JacksonPark Group</title>
  </head>
- 
+
 
 <body>
   {{>menu}}
@@ -19,7 +19,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">JacksonPark Group</a>
+        <a class="navbar-brand" href="/">JacksonPark</a>
       </div>
       <div class="collapse navbar-collapse" id="mobile-collapse">
         <ul class="nav navbar-nav">
@@ -51,7 +51,7 @@
   </section>
 </template>
 
- 
+
 <!-- File upload part-->
 <template name="uploadfile">
   {{#if admin}}
@@ -87,15 +87,15 @@
         </div>
       </div>
     </section>
+    <section id="valuation-titles" data-speed="4" data-type="background">
+      <h1 class="white-font">Return on Investment</h1>
+    </section>
     <section id="intro">
-      <div class="accordion" id="section1">
-        Financial Competitiveness
-        <span></span></div>
         <div class="container">
             <div class="content">
-                <p>
-              Return on investment compared to competitors
-            </p>
+                <div class="demo-container">
+                  <div id="roic" class="flot"></div>
+                </div>
             <p>
               Company return percentile ranking (ROIPercentile number)
             </p>
@@ -104,12 +104,11 @@
             </p>
             </div>
         </div>
-        <!-- end panel -->
-        <!-- panel -->
-        <div class="accordion" id="section2">
-        Growth
-        <span></span></div>
-
+      </section>
+      <section id="valuation-titles" data-speed="4" data-type="background">
+        <h1 class="white-font">Company Growth</h1>
+      </section>
+      <section id="intro">
         <div class="container">
             <div class="content">
             <p>
@@ -126,11 +125,11 @@
                 </p>
             </div>
         </div>
-        <!-- end panel -->
-        <!-- panel -->
-        <div class="accordion" id="section3">
-        Financial Health
-        <span></span></div>
+      </section>
+      <section id="valuation-titles" data-speed="4" data-type="background">
+        <h1 class="white-font">Financial Condition</h1>
+      </section>
+      <section id="intro">
         <div class="container">
             <div class="content">
                 <p>
