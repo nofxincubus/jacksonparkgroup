@@ -40,7 +40,7 @@ Template.uploadfile.events({
   var file = event.currentTarget.files[0];
   var reader = new FileReader();
   reader.onload = function(fileLoadEvent) {
-    Meteor.call('file-upload', file, reader.result);
+    Meteor.call('fileupload', file, reader.result);
   };
   reader.readAsBinaryString(file);
 }
@@ -116,12 +116,6 @@ Template.lookupcompany.rendered = function (){
 
 };
 
-
-Template.lookupcompany.events({
-  'click #search' : function () {
-    var ticker = $('#ticker').val();
-    submitme(ticker.toUpperCase());
-}});
 
 function submitme(tickerStr) {
   var tickerNasdaq = tickerStr + "_nasdaq";
@@ -204,7 +198,7 @@ function submitme(tickerStr) {
         },
         yaxis: {
           show: false,
-          max: valuation3 + 30,
+          max: Math.max(valuation1, valuation2, valuation3, CurrentPrice) + 30,
           ticklength: 0
         },
         label: {

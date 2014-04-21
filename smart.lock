@@ -16,8 +16,8 @@
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
-        "tag": "v0.5.4.1",
-        "commit": "d00e380dda2184b70e909fc4a0fb5358d602c586"
+        "tag": "v0.6.0",
+        "commit": "1e2860138402fb288c2fbce70338161f4d86a5d4"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
@@ -31,8 +31,8 @@
       },
       "accounts-admin-ui": {
         "git": "https://github.com/kenyee/meteor-accounts-admin-ui.git",
-        "tag": "v1.0.5",
-        "commit": "3af06986c6679a235126444eab37f1ed7c360f1f"
+        "tag": "v1.0.6",
+        "commit": "54391c3adc6d76731a7e203f14500a9d46ce7d91"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
@@ -56,8 +56,8 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.6",
-        "commit": "f2a9058281f8f2fe028767841d7445aadd6893cf"
+        "tag": "v1.2.8",
+        "commit": "68844ba216c348d332bdb840825850f497f515bb"
       }
     }
   }

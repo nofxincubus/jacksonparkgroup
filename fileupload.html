@@ -1,0 +1,15 @@
+<!-- File upload part-->
+<template name="uploadfile">
+  {{#if admin}}
+  <div class="fileupload fileupload-new" data-provides="fileupload">
+   <span class="btn btn-file">
+      <span class="fileupload-new">{{fileupload.label.de}}</span>
+      <span class="fileupload-exists">File exists</span>
+      <input name="{{fileupload.name}}" class="fileupload-input" method="{{fileupload.method}}" type="file"/>
+   </span>
+   <span class="fileupload-preview">
+   </span>
+   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+  </div>
+  {{/if}}
+</template>

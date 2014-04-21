@@ -7,7 +7,7 @@ Meteor.publish("users", function () {
 });
 
 Meteor.methods({
-   'file-upload': function (fileInfo, fileData) {
+   'fileupload': function (fileInfo, fileData) {
    		Companies.remove({})
 		var lines = fileData.split("\n");
 		for (var i = 1;i < lines.length;i++){
@@ -90,20 +90,3 @@ Meteor.methods({
 		}
    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

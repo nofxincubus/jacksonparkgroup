@@ -1,0 +1,41 @@
+<template name="menu">
+  <header class="navbar navbar-default navbar-static-top" id="top" role="banner">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">JacksonPark</a>
+      </div>
+      <div class="collapse navbar-collapse" id="mobile-collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="medium-font-size" href="/valuation">Valuation</a></li>
+          <li><a class="medium-font-size" href="/aboutus">About Us</a></li>
+          <li><a class="medium-font-size" href="mailto:jacksonparkgroup@gmail.com">Contact us</a></li>
+          {{#if currentUser}}
+            {{#if admin}}
+              <li><a class="medium-font-size" href="/upload">Upload</a></li>
+            {{/if}}
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>{{> loginButtons align="right"}}</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</template>
+<template name="footer">
+  <section id="about">
+    <div class="container">
+      <div id="footer">
+        <p>This information presented on this site is intended to assist investors. The information and analysis does not constitute investment advice. This information is not an offer to invest or to provide management services. All information, analysis, and opinions presented on this site are subject to correction, completion and amendment without notice. Current or past results are not indicative of future results and any analysis therein should not be taken as expectations of future performance. Investors should consult with investment, accounting, legal and tax advisers to evaluate independently the risks, consequences of any investment prior to purchase. Opinions and decisions expressed on this site are subject to change without notice. Should any assumptions used here in any way change investment results are likely to vary substantially. You may not rely on any statements contained herein to produce results of any predefined expectation. All investments entail risks and there is no guarantee that any investment strategy will achieve any desired result. No information on this site should be taken as such. JacksonPark makes no claim to and does not provide broker/dealer, consulting or any related services. JacksonPark and the owners and operators of this site shall not have any liability for any damages of any kind whatsoever relating to material presented, distributed via, or relating to this site. By reading material on this site you acknowledge and agree to the terms of this disclaimer.</p>
+        <br/>
+        <p>Copyright &copy; 2014 JacksonPark</p>
+      </div>
+    </div>
+  </section>
+</template>

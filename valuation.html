@@ -1,0 +1,81 @@
+<!-- Look Up Company part-->
+<template name="lookupcompany">
+  {{#if currentUser}}
+    <section id="intro">
+      <div class="container">
+        <div class ="row">
+          <div class="col-md-6 pull-right">
+            <input id="ticker" type="search" class="col-md-8 pull-right" placeholder="Ticker eg:INTC"/>
+          </div>
+        </div>
+      </div>
+      <div class ="row">
+        <div class="demo-container">
+          <h3 id="company-name"></h3>
+          <div id="placeholder" class="flot"></div>
+        </div>
+      </div>
+    </section>
+    <section id="valuation-titles" data-speed="4" data-type="background">
+      <div class="container">
+        <h1 class="text-center white-font">Return on Investment</h1>
+      </div>
+    </section>
+    <section id="intro">
+        <div class="container">
+            <div class="content">
+                <div class="demo-container">
+                  <div id="roic" class="flot"></div>
+                </div>
+            <p>
+              Company return percentile ranking (ROIPercentile number)
+            </p>
+            </div>
+        </div>
+      </section>
+      <section id="valuation-titles" data-speed="4" data-type="background">
+        <div class="container">
+          <h1 class="text-center white-font">Company Growth</h1>
+        </div>
+      </section>
+      <section id="intro">
+        <div class="container">
+            <div class="content">
+            <p>
+              Historical growth - context for company's future growth prospects.
+            </p>
+            <p>
+              Cash flow growth (not in the table yet)
+            </p>
+            <p>
+              Three-year EPS growth (AvgEPSGrowth3)
+            </p>
+            <p>
+              Three-year revenue growth (AvgRevenueGrowth3)
+                </p>
+            </div>
+        </div>
+      </section>
+      <section id="valuation-titles" data-speed="4" data-type="background">
+        <div class="container">
+          <h1 class="text-center white-font">Financial Condition</h1>
+        </div>
+      </section>
+      <section id="intro">
+        <div class="container">
+            <div class="content">
+                <p>
+              Liquidity and Solvency
+            </p>
+            <p>
+                    Liquidity and the current ratio
+            </p>
+            <p>
+              Long-term debt levels
+                </p>
+            </div>
+        </div>
+    </section>
+
+  {{/if}}
+</template>
