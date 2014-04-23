@@ -12,7 +12,7 @@ Meteor.methods({
 		var lines = fileData.split("\n");
 		for (var i = 1;i < lines.length;i++){
 	      	var variable = lines[i].split("|");
-	      	if (variable.length == 69){
+	      	if (variable.length == 81){
 		      	Companies.insert({
 					CompanyTicker: variable[0],
 					Name: variable[1],
@@ -82,11 +82,26 @@ Meteor.methods({
 					Equity2: variable[65],
 					ExcessReturns0: variable[66],
 					ExcessReturns1: variable[67],
-					ExcessReturns2: variable[68]
+					ExcessReturns2: variable[68],
+					CurrentLiabilitiesToAssets: variable[69],
+					LiabilitiesToAssets: variable[70],
+					EffTaxRate: variable[71],
+					InvestedCapital: variable[72],
+					LongTermDebtToWorkingCapital: variable[73],
+					WorkingCapital: variable[74],
+					MinFCFGrowth1: variable[75],
+					AvgFCFGrowth1: variable[76],
+					MinFCFGrowth2: variable[77],
+					AvgFCFGrowth2: variable[78],
+					MinFCFGrowth3: variable[79],
+					AvgFCFGrowth3: variable[80],
+
 		      	});
 			} else {
 				console.log("not included : " + i);
 			}
 		}
+		console.log("done!");
+		alert("Done!");
    }
 });

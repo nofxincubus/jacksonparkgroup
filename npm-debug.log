@@ -1,0 +1,67 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.4/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'npm',
+1 verbose cli   '-g' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.4
+4 verbose read json /usr/local/share/npm/lib/package.json
+5 verbose read json /usr/local/share/npm/lib/package.json
+6 verbose cache add [ 'npm', null ]
+7 verbose cache add name=undefined spec="npm" args=["npm",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'npm',
+8 verbose parsed url   path: 'npm',
+8 verbose parsed url   href: 'npm' }
+9 silly lockFile 660051d1-npm npm
+10 verbose lock npm /Users/cpark/.npm/660051d1-npm.lock
+11 silly lockFile 660051d1-npm npm
+12 silly lockFile 660051d1-npm npm
+13 verbose addNamed [ 'npm', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile 2f990b75-npm npm@
+16 verbose lock npm@ /Users/cpark/.npm/2f990b75-npm.lock
+17 silly addNameRange { name: 'npm', range: '', hasData: false }
+18 verbose url raw npm
+19 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+20 verbose url resolved https://registry.npmjs.org/npm
+21 info trying registry request attempt 1 at 11:15:09
+22 http GET https://registry.npmjs.org/npm
+23 info retry will retry, error on last attempt: Error: UNABLE_TO_VERIFY_LEAF_SIGNATURE
+24 info trying registry request attempt 2 at 11:15:20
+25 http GET https://registry.npmjs.org/npm
+26 info retry will retry, error on last attempt: Error: UNABLE_TO_VERIFY_LEAF_SIGNATURE
+27 info trying registry request attempt 3 at 11:16:20
+28 http GET https://registry.npmjs.org/npm
+29 silly lockFile 2f990b75-npm npm@
+30 silly lockFile 2f990b75-npm npm@
+31 error Error: UNABLE_TO_VERIFY_LEAF_SIGNATURE
+31 error     at SecurePair.<anonymous> (tls.js:1283:32)
+31 error     at SecurePair.EventEmitter.emit (events.js:92:17)
+31 error     at SecurePair.maybeInitFinished (tls.js:896:10)
+31 error     at CleartextStream.read [as _read] (tls.js:430:15)
+31 error     at CleartextStream.Readable.read (_stream_readable.js:294:10)
+31 error     at EncryptedStream.write [as _write] (tls.js:344:25)
+31 error     at doWrite (_stream_writable.js:211:10)
+31 error     at writeOrBuffer (_stream_writable.js:201:5)
+31 error     at EncryptedStream.Writable.write (_stream_writable.js:172:11)
+31 error     at write (_stream_readable.js:547:24)
+32 error If you need help, you may report this log at:
+32 error     <http://github.com/isaacs/npm/issues>
+32 error or email it to:
+32 error     <npm-@googlegroups.com>
+33 error System Darwin 12.5.0
+34 error command "/usr/local/Cellar/node/0.10.4/bin/node" "/usr/local/bin/npm" "install" "npm" "-g"
+35 error cwd /Users/cpark/Documents/untitled folder/jacksonparkgroup
+36 error node -v v0.10.4
+37 error npm -v 1.2.18
+38 verbose exit [ 1, true ]

@@ -16,7 +16,9 @@ Meteor.subscribe("CompanyTickerList",function(){
           submitme(ticker.toUpperCase());
         }
       });
-      //submitme("INTC");
+
+      var portfolioList = ["INTC", "CRUS", "BBBY", "CJES", "TNH", "CF", "IBM", "CVI"];
+      submitme(portfolioList[Math.round(Math.random() * (portfolioList.length - 1) + 0)]);
     }
   }
 });
@@ -28,7 +30,6 @@ Meteor.Router.add({
   '/valuation': 'lookupcompany',
   '/upload':'uploadfile',
   '/contactus':'contactus',
-  '/aboutus':'aboutus',
   '*': '404',
   '/admin': { to: 'uploadfile', nav: 'uploadfile', before: [bounceNonUserAdmin] }
 });
@@ -70,50 +71,24 @@ Template.menu.admin = function () {
 };
 
 Template.lookupcompany.rendered = function (){
-  $(document).ready(function(){
-
-   // cache the window object
-   $window = $(window);
-
-   $('section[data-type="background"]').each(function(){
-     // declare the variable to affect the defined data-type
-     var $scroll = $(this);
-
-      $(window).scroll(function() {
-        // HTML5 proves useful for helping with creating JS functions!
-        // also, negative value because we're scrolling upwards
-        var yPos = -($window.scrollTop() / $scroll.data('speed'));
-
-        // background position
-        var coords = '50% '+ yPos + 'px';
-
-        // move the background
-        $scroll.css({ backgroundPosition: coords });
-      }); // end window scroll
-   });  // end section function
-
-
-}); // close out script
-
-  var tickerList = Companies.find({}, {fields: {'CompanyTicker':1, 'Name':1}}).fetch();
-    var tickerNameArray = [];
-    if (tickerList.length > 10){
-      for (var i = 0; i < tickerList.length;i++){
-        tickerNameArray[i] = tickerList[i].CompanyTicker.substring(0,tickerList[i].CompanyTicker.indexOf("_")) + " " + tickerList[i].Name;
-      }
-      $("#ticker").autocomplete({
-        source: tickerNameArray,
-        messages: {
-          noResults: '',
-          results: function() {}
-        },select:function(event, ui){
-          var ticker = ui.item.value.substring(0,ui.item.value.indexOf(" "));
-          submitme(ticker.toUpperCase());
-        }
-      });
-      submitme("INTC");
-    }
-
+   var tickerList = Companies.find({}, {fields: {'CompanyTicker':1, 'Name':1}}).fetch();
+     var tickerNameArray = [];
+     if (tickerList.length > 10){
+       for (var i = 0; i < tickerList.length;i++){
+         tickerNameArray[i] = tickerList[i].CompanyTicker.substring(0,tickerList[i].CompanyTicker.indexOf("_")) + " " + tickerList[i].Name;
+       }
+       $("#ticker").autocomplete({
+         source: tickerNameArray,
+         messages: {
+           noResults: '',
+           results: function() {}
+         },select:function(event, ui){
+           var ticker = ui.item.value.substring(0,ui.item.value.indexOf(" "));
+           submitme(ticker.toUpperCase());
+         }
+       });
+       submitme("INTC");
+     }
 };
 
 
@@ -269,7 +244,7 @@ function submitme(tickerStr) {
     $.plot(placeholder, PlotData, PlotOptions);
 
 
-
+    $("#percentile-rank").text("ROIC Percentile : " + parseInt(chosenCompany.ROIPercentile));
 
 
 }

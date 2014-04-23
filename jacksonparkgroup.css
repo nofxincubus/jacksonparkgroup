@@ -1,4 +1,4 @@
-/* CSS declarations go here */
+/* CSS declarations go here*/
 .login-display-name{
 	color: white;
 	text-decoration:none;
@@ -46,6 +46,7 @@
 }
 
 
+
 #footer {
 	margin-top: 25px;
 	margin-bottom: 10px;
@@ -59,20 +60,6 @@
 	height: 500px;
 	padding: 20px 15px 15px 15px;
 	margin: 15px auto 15px auto;
-	/*
-	border: 1px solid #ddd;
-	background: #fff;
-	background: linear-gradient(#f6f6f6 0, #fff 50px);
-	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
-	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
-	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
-	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
-	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	*/
 }
 
 
@@ -108,9 +95,13 @@
     height: auto;
     margin: 0 auto;
     width: 100%;
-    position: relative;
-    padding: 80px 0;
-    z-index: -2;
+}
+
+#faq {
+		background: url(/deep_blue.png) 100% 0 fixed;
+		height: auto;
+		margin: 0 auto;
+		width: 100%;
 }
 
 #valuation-titles {
@@ -118,20 +109,14 @@
 		height: auto;
 		margin: 0 auto;
 		width: 100%;
-		position: relative;
-		padding: 20px 0;
-		z-index: -2;
 }
 
 
-#faq {
+#about-us {
     background: #f0f0f0;
     height: auto;
     margin: 0 auto;
     width: 100%;
-    position: relative;
-    padding: 100px 0;
-    z-index: 0;
 }
 
 #about {
@@ -140,9 +125,6 @@
     margin: 0 auto;
     width: 100%;
     position: relative;
-    padding: 30px 0;
-    color: #000;
-    z-index: 0;
 }
 
 #about-valuation {
@@ -150,9 +132,6 @@
     height: auto;
     margin: 0 auto;
     width: 100%;
-    position: relative;
-    padding: 30px 0;
-    color: #000;
 }
 
 h1,
@@ -196,44 +175,4 @@ a {
 */
 * html .ui-autocomplete {
 height: 180px;
-}
-
-
-/*
-Accordion
-*/
-.accordion {
-    margin: 0;
-    padding:10px;
-    height:50px;
-    border-top: #f0f0f0 1px solid;
-    background: #cccccc;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration:none;
-    text-transform:uppercase;
-    color: #000;
-    font-size:1.5em;
-	font-weight:bold;
-}
-.accordion-open {
-    background:#0000FF/*#000*/;
-    color: #000/*#fff*/;
-}
-.accordion-close {
-    background:#0000FF;
-    color: #000;
-}
-.accordion-open span {
-    display:block;
-    float:right;
-    padding:10px;
-}
-.accordion-open span {
-    background:url(../images/minus.png) center center no-repeat;
-}
-.accordion-close span {
-    display:block;
-    float:right;
-    background: #00FF00/*url(../images/plus.png) center center no-repeat*/;
-    padding:10px;
 }

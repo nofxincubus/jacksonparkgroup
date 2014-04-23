@@ -4,6 +4,7 @@
     "router": {},
     "bootstrap-3": {},
     "jquery-ui-bootstrap": {},
-    "accounts-admin-ui": {}
+    "accounts-admin-ui": {},
+    "fast-render": {}
   }
 }
