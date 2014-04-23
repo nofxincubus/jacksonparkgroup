@@ -65,6 +65,7 @@
 
 .flot {
 	width: 100%;
+	max-width: 800px;
 	height: 85%;
 	font-size: 14px;
 	line-height: 1.2em;
@@ -178,22 +179,89 @@ height: 180px;
 }
 
 #cashflow-growth {
-	height:100px;
-	border-color: #0070c0;
+	height:50px;
 	border-width: 3px;
-	border-style: solid;
+	border-bottom: solid #0070c0;
+	border-left: solid #0070c0;
+	border-right: solid #0070c0;
+	margin-top: -45px;
+	vertical-align: bottom;
 }
 
 #eps-growth {
-	height:100px;
-	border-color: #00b050;
+	height:50px;
 	border-width: 3px;
-	border-style: solid;
+	border-bottom: solid #00b050;
+	border-left: solid #00b050;
+	border-right: solid #00b050;
+	margin-top: -45px;
+	vertical-align: bottom;
 }
 
 #revenue-growth {
-	height:100px;
-	border-color: #ffff00;
+	height:50px;
 	border-width: 3px;
-	border-style: solid;
+	border-bottom: solid #ffff00;
+	border-left: solid #ffff00;
+	border-right: solid #ffff00;
+	margin-top: -45px;
+	vertical-align: bottom;
+}
+#cashflow-growth-top {
+	height:50px;
+	border-width: 3px;
+	border-top: solid #0070c0;
+	border-left: solid #0070c0;
+	border-right: solid #0070c0;
+}
+
+#eps-growth-top {
+	height:50px;
+	border-width: 3px;
+	border-top: solid #00b050;
+	border-left: solid #00b050;
+	border-right: solid #00b050;
+}
+
+#revenue-growth-top {
+	height:50px;
+	border-width: 3px;
+	border-top: solid #ffff00;
+	border-left: solid #ffff00;
+	border-right: solid #ffff00;
+}
+
+#current-ratio {
+	height:50px;
+	border-width: 3px;
+	border-bottom: solid #0070c0;
+	border-left: solid #0070c0;
+	border-right: solid #0070c0;
+	margin-top: -45px;
+	vertical-align: bottom;
+}
+
+#debt-assets {
+	height:50px;
+	border-width: 3px;
+	border-bottom: solid #00b050;
+	border-left: solid #00b050;
+	border-right: solid #00b050;
+	margin-top: -45px;
+	vertical-align: bottom;
+}
+#current-ratio-top {
+	height:50px;
+	border-width: 3px;
+	border-top: solid #0070c0;
+	border-left: solid #0070c0;
+	border-right: solid #0070c0;
+}
+
+#debt-assets-top {
+	height:50px;
+	border-width: 3px;
+	border-top: solid #00b050;
+	border-left: solid #00b050;
+	border-right: solid #00b050;
 }
