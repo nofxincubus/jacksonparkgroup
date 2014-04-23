@@ -176,3 +176,24 @@ a {
 * html .ui-autocomplete {
 height: 180px;
 }
+
+#cashflow-growth {
+	height:100px;
+	border-color: #0070c0;
+	border-width: 3px;
+	border-style: solid;
+}
+
+#eps-growth {
+	height:100px;
+	border-color: #00b050;
+	border-width: 3px;
+	border-style: solid;
+}
+
+#revenue-growth {
+	height:100px;
+	border-color: #ffff00;
+	border-width: 3px;
+	border-style: solid;
+}

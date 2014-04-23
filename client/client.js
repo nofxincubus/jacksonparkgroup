@@ -244,7 +244,12 @@ function submitme(tickerStr) {
     $.plot(placeholder, PlotData, PlotOptions);
 
 
-    $("#percentile-rank").text("ROIC Percentile : " + parseInt(chosenCompany.ROIPercentile));
-
+  $("#percentile-rank").text("ROIC Percentile : " + parseInt(chosenCompany.ROIPercentile));
+  $("#cashflow-growth").text(parseInt(chosenCompany.MinFCFGrowth3*100) + "%");
+  $("#eps-growth").text(parseInt(chosenCompany.AvgEPSGrowth3*100) + "%");
+  $("#revenue-growth").text(parseInt(chosenCompany.AvgRevenueGrowth3*100) + "%");
 
 }
+
+
+
