@@ -184,7 +184,8 @@ height: 180px;
 	border-bottom: solid #0070c0;
 	border-left: solid #0070c0;
 	border-right: solid #0070c0;
-	margin-top: -45px;
+	margin-top: -10px;
+	padding-bottom: 60px;
 	vertical-align: bottom;
 }
 
@@ -194,7 +195,8 @@ height: 180px;
 	border-bottom: solid #00b050;
 	border-left: solid #00b050;
 	border-right: solid #00b050;
-	margin-top: -45px;
+	margin-top: -10px;
+	padding-bottom: 60px;
 	vertical-align: bottom;
 }
 
@@ -204,7 +206,8 @@ height: 180px;
 	border-bottom: solid #ffff00;
 	border-left: solid #ffff00;
 	border-right: solid #ffff00;
-	margin-top: -45px;
+	margin-top: -10px;
+	padding-bottom: 60px;
 	vertical-align: bottom;
 }
 #cashflow-growth-top {
@@ -213,6 +216,7 @@ height: 180px;
 	border-top: solid #0070c0;
 	border-left: solid #0070c0;
 	border-right: solid #0070c0;
+	padding-top: 20px;
 }
 
 #eps-growth-top {
@@ -221,6 +225,7 @@ height: 180px;
 	border-top: solid #00b050;
 	border-left: solid #00b050;
 	border-right: solid #00b050;
+	padding-top: 20px;
 }
 
 #revenue-growth-top {
@@ -229,6 +234,7 @@ height: 180px;
 	border-top: solid #ffff00;
 	border-left: solid #ffff00;
 	border-right: solid #ffff00;
+	padding-top: 20px;
 }
 
 #current-ratio {
@@ -237,8 +243,9 @@ height: 180px;
 	border-bottom: solid #0070c0;
 	border-left: solid #0070c0;
 	border-right: solid #0070c0;
-	margin-top: -45px;
+	margin-top: -10px;
 	vertical-align: bottom;
+	padding-bottom: 60px;
 }
 
 #debt-assets {
@@ -247,8 +254,9 @@ height: 180px;
 	border-bottom: solid #00b050;
 	border-left: solid #00b050;
 	border-right: solid #00b050;
-	margin-top: -45px;
+	margin-top: -10px;
 	vertical-align: bottom;
+	padding-bottom: 60px;
 }
 #current-ratio-top {
 	height:50px;
@@ -256,6 +264,7 @@ height: 180px;
 	border-top: solid #0070c0;
 	border-left: solid #0070c0;
 	border-right: solid #0070c0;
+	padding-top: 20px;
 }
 
 #debt-assets-top {
@@ -264,4 +273,5 @@ height: 180px;
 	border-top: solid #00b050;
 	border-left: solid #00b050;
 	border-right: solid #00b050;
+	padding-top: 20px;
 }

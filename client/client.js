@@ -30,6 +30,7 @@ Meteor.Router.add({
   '/valuation': 'lookupcompany',
   '/upload':'uploadfile',
   '/contactus':'contactus',
+  '/disclaimer':'disclaimer',
   '*': '404',
   '/admin': { to: 'uploadfile', nav: 'uploadfile', before: [bounceNonUserAdmin] }
 });
@@ -173,7 +174,7 @@ function submitme(tickerStr) {
         },
         yaxis: {
           show: false,
-          max: Math.max(valuation1, valuation2, valuation3, CurrentPrice) + 30,
+          max: Math.max(valuation1, valuation2, valuation3, CurrentPrice) + Math.max(valuation1, valuation2, valuation3, CurrentPrice)*0.3,
           ticklength: 0
         },
         label: {
@@ -251,7 +252,7 @@ function submitme(tickerStr) {
   if (parseFloat(chosenCompany.CurrentLiabilitiesToAssets) == 0){
     $("#current-ratio").text(1/parseFloat(chosenCompany.CurrentLiabilitiesToAssets) + "");  
   } else {
-    $("#current-ratio").text("No Short Term Debt");  
+    $("#current-ratio").text("Perfect");  
   }
   $("#debt-assets").text(parseFloat(chosenCompany.LiabilitiesToAssets));
 
